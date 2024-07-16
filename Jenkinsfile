@@ -10,8 +10,20 @@ pipeline {
         stage('checkout'){
             steps {
                 
-            git url:'https://github.com/omarabulella/simple-ci-cd-pipeline' 
+            git url:'https://github.com/omarabulella/simple-ci-cd-pipeline' , branch: 'main'
     }
+            stage('build'){
+                steps{
+                    sh 'pip install requirements.txt'
+                }
+            }
+            stage('Test'){
+                sh 'pytest'
+            }
+            stage('Deploy'){
+                sh 'docker build -t flas-app . '
+                sh 'docker run -d -p 5000:5000 flask-app'
+            }
 }
     }
 }
