@@ -11,7 +11,7 @@ pipeline {
             steps {
                 
             git url:'https://github.com/omarabulella/simple-ci-cd-pipeline' , branch: 'main'
-    }
+    }}
             stage('build'){
                 steps{
                     sh 'pip install requirements.txt'
@@ -20,5 +20,5 @@ pipeline {
        
 }
     }
-}
+
 
