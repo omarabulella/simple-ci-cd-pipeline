@@ -7,9 +7,8 @@ pipeline {
                 echo 'Hello World'
             }
         }
-        stage("checkout"){
-            git url:'https://github.com/omarabulella/simple-ci-cd-pipeline' , branch: 'main'
-            echo 'checkout success'
+        stage('checkout'){
+            git url:'https://github.com/omarabulella/simple-ci-cd-pipeline'
     }
 }
 
