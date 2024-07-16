@@ -18,12 +18,15 @@ pipeline {
                 }
             }
             stage('Test'){
+                steps{
                 sh 'pytest'
+                }
             }
             stage('Deploy'){
+                steps{
                 sh 'docker build -t flas-app . '
                 sh 'docker run -d -p 5000:5000 flask-app'
-            }
+            }}
 }
     }
 }
